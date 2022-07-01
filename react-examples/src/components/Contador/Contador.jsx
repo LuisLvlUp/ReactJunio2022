@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Contador.css'
 
 export const Contador = ( { decrementar, incrementar, state } ) => {
