@@ -30,6 +30,10 @@ export const Main = () => {
       setColor("blue")
     }
 
+    // setTimeout(() => {
+    //   setState(state + 1)
+    // }, 1000);
+
   }, [state])
   
 
