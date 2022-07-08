@@ -2,6 +2,7 @@ import * as React from 'react';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import { CategoriaItem } from '../CategoriaItem/CategoriaItem';
+import { categorias } from '../../shared/categorias';
 
 
 const Categoria = () => {
@@ -22,7 +23,13 @@ const Categoria = () => {
         </ListSubheader>
       }
     >
-        <CategoriaItem />
+        { 
+          categorias.map( ( categoria ) => {
+            return(
+              <CategoriaItem categoria={categoria} />
+            )
+          } )
+        }
     </List>
   );
 }

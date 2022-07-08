@@ -1,4 +1,4 @@
-const categorias = [
+export const categorias = [
     {
         id: 1,
         nombre: "Electrodomesticos",
