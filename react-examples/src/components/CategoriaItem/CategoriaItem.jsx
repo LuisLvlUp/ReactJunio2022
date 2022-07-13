@@ -9,12 +9,14 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import List from '@mui/material/List';
 import { Producto } from '../Producto/Producto';
 
-export const CategoriaItem = ({ categoria }) => {
+export const CategoriaItem = ({categoria}) => {
     const [open, setOpen] = React.useState(false);
 
     const handleClick = () => {
       setOpen(!open);
     };
+
+    const {nombre, productos} = categoria;
 
     return (
         <>
@@ -22,13 +24,13 @@ export const CategoriaItem = ({ categoria }) => {
                 <ListItemIcon>
                     <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary={categoria.nombre} />
+                <ListItemText primary={nombre} />
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                     {
-                        categoria.productos.map( ( producto )=>{
+                        productos.map( ( producto )=>{
                             return(
                                 <Producto producto={producto} />
                             )
