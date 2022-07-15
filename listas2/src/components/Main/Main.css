@@ -4,4 +4,9 @@
     align-items: center;
     height: 80vh;
     flex-direction: column;
+    width: 100vw;
+}
+
+.container > hr{
+    width: 50%;
 }

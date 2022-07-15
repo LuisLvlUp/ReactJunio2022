@@ -1,11 +1,13 @@
 import React from 'react'
+import { cursos } from '../../shared/cursos'
+import { Curso } from './Curso/Curso'
 
 export const ListaCurso = ({lista}) => {
   return (
     <ul>
       {
-        lista.map((curso, index) => {
-          return <li key={index}> {curso.nombre} </li>
+        lista.map((curso) => {
+          return <Curso key={curso.id} curso={curso}  />
         })
       }
     </ul>

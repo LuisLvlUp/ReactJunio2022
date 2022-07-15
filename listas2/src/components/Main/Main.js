@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { ListaCurso } from '../ListaCurso/ListaCurso'
 import './Main.css'
 import { cursos as cursosData } from '../../shared/cursos'
+import { Formulario } from '../Formulario/Formulario'
 
 export const Main = () => {
 
@@ -15,6 +16,10 @@ export const Main = () => {
     return (
         <div className='container'>
             <ListaCurso lista={cursos} />
+            <hr></hr>
+            <hr></hr>
+            <hr></hr>
+            <Formulario />
         </div>
     )
 }

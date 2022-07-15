@@ -1,7 +1,9 @@
 import React from 'react'
 
-export const Alumno = () => {
+export const Alumno = ({alumno}) => {
   return (
-    <div>Alumno</div>
+    <li>
+      alumno: {alumno.nombre}, edad: {alumno.edad}
+    </li>
   )
 }

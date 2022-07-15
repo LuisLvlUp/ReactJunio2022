@@ -9,12 +9,12 @@ export const cursos = [
                 edad: 25
             },
             {
-                id: 1,
+                id: 2,
                 nombre: "Andres",
                 edad: 21
             },
             {
-                id: 1,
+                id: 3,
                 nombre: "Carlos",
                 edad: 28
             }
