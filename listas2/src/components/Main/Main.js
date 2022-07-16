@@ -19,7 +19,7 @@ export const Main = () => {
             <hr></hr>
             <hr></hr>
             <hr></hr>
-            <Formulario />
+            <Formulario cursos={cursos} setCursos={setCursos}/>
         </div>
     )
 }
