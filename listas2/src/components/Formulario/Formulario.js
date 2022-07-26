@@ -23,6 +23,11 @@ export const Formulario = ({cursos, setCursos}) => {
             })
 
             setCursos(nuevaData)
+            setAlumno({
+                curso: 1,
+                nombre: '',
+                edad: ''
+            })
         }
     }, [alumno])
     
