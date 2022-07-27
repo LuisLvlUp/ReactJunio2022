@@ -1,4 +1,4 @@
-import * as React from 'react';
+import react, { useContext, useState } from 'react';
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,15 +14,18 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { AppBar, Drawer, DrawerHeader } from './styles';
 import HomeIcon from '@mui/icons-material/Home';
 import CategoryIcon from '@mui/icons-material/Category';
 import InfoIcon from '@mui/icons-material/Info';
+import { Link } from 'react-router-dom';
+import { ThemeContext } from '../../shared/theme';
+import NightlightIcon from '@mui/icons-material/Nightlight';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 export const Navigation = ({ children }) => {
     const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -32,10 +35,12 @@ export const Navigation = ({ children }) => {
         setOpen(false);
     };
 
+    const themeDark = useContext(ThemeContext);
+
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open}>
+            <AppBar position="fixed" open={open} sx={ themeDark && { backgroundColor: themeDark.dark}}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -63,64 +68,91 @@ export const Navigation = ({ children }) => {
                 <Divider />
                 <List>
                     <ListItem key={1} disablePadding sx={{ display: 'block' }}>
-                        <ListItemButton
-                            sx={{
-                                minHeight: 48,
-                                justifyContent: open ? 'initial' : 'center',
-                                px: 2.5,
-                            }}
-                        >
-                            <ListItemIcon
+                        <Link to="/home" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }}>
+                            <ListItemButton
                                 sx={{
-                                    minWidth: 0,
-                                    mr: open ? 3 : 'auto',
-                                    justifyContent: 'center',
+                                    minHeight: 48,
+                                    justifyContent: open ? 'initial' : 'center',
+                                    px: 2.5,
                                 }}
                             >
-                                <HomeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary={'Home'} sx={{ opacity: open ? 1 : 0 }} />
-                        </ListItemButton>
+                                <ListItemIcon
+                                    sx={{
+                                        minWidth: 0,
+                                        mr: open ? 3 : 'auto',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    <HomeIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={'Home'} sx={{ opacity: open ? 1 : 0 }} />
+                            </ListItemButton>
+                        </Link>
+
                     </ListItem>
                     <ListItem key={2} disablePadding sx={{ display: 'block' }}>
-                        <ListItemButton
-                            sx={{
-                                minHeight: 48,
-                                justifyContent: open ? 'initial' : 'center',
-                                px: 2.5,
-                            }}
-                        >
-                            <ListItemIcon
+                        <Link to="/productos" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }}>
+                            <ListItemButton
                                 sx={{
-                                    minWidth: 0,
-                                    mr: open ? 3 : 'auto',
-                                    justifyContent: 'center',
+                                    minHeight: 48,
+                                    justifyContent: open ? 'initial' : 'center',
+                                    px: 2.5,
                                 }}
                             >
-                                <CategoryIcon />
-                            </ListItemIcon>
-                            <ListItemText primary={'Productos'} sx={{ opacity: open ? 1 : 0 }} />
-                        </ListItemButton>
+                                <ListItemIcon
+                                    sx={{
+                                        minWidth: 0,
+                                        mr: open ? 3 : 'auto',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    <CategoryIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={'Productos'} sx={{ opacity: open ? 1 : 0 }} />
+                            </ListItemButton>
+                        </Link>
                     </ListItem>
                     <ListItem key={3} disablePadding sx={{ display: 'block' }}>
-                        <ListItemButton
-                            sx={{
-                                minHeight: 48,
-                                justifyContent: open ? 'initial' : 'center',
-                                px: 2.5,
-                            }}
-                        >
-                            <ListItemIcon
+                        <Link to="/about" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }}>
+                            <ListItemButton
                                 sx={{
-                                    minWidth: 0,
-                                    mr: open ? 3 : 'auto',
-                                    justifyContent: 'center',
+                                    minHeight: 48,
+                                    justifyContent: open ? 'initial' : 'center',
+                                    px: 2.5,
                                 }}
                             >
-                                <InfoIcon />
-                            </ListItemIcon>
-                            <ListItemText primary={'About Us'} sx={{ opacity: open ? 1 : 0 }} />
-                        </ListItemButton>
+                                <ListItemIcon
+                                    sx={{
+                                        minWidth: 0,
+                                        mr: open ? 3 : 'auto',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    <InfoIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={'About Us'} sx={{ opacity: open ? 1 : 0 }} />
+                            </ListItemButton>
+                        </Link>
+                    </ListItem>
+                    <ListItem key={3} disablePadding sx={{ display: 'block' }}>
+                            <ListItemButton
+                                sx={{
+                                    minHeight: 48,
+                                    justifyContent: open ? 'initial' : 'center',
+                                    px: 2.5,
+                                }}
+                            >
+                                <ListItemIcon
+                                    sx={{
+                                        minWidth: 0,
+                                        mr: open ? 3 : 'auto',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    { true ? <LightModeIcon /> : <NightlightIcon/> }
+                                </ListItemIcon>
+                                <ListItemText primary={'Mode'} sx={{ opacity: open ? 1 : 0 }} />
+                            </ListItemButton>
                     </ListItem>
                 </List>
                 <Divider />
