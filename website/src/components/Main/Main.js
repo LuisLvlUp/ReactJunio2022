@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { AboutUs } from '../AboutUs/AboutUs'
+import { Carrito } from '../Carrito/Carrito'
 import { Home } from '../Home/Home'
 import { Navigation } from '../Navigation/Navigation'
 import { NotFound } from '../NotFound/NotFound'
@@ -23,6 +24,11 @@ export const Main = () => {
         <Route path="productos" element={
           <Navigation>
             <Productos />
+          </Navigation>}
+        />
+        <Route path="carrito" element={
+          <Navigation>
+            <Carrito />
           </Navigation>}
         />
         <Route path="404" element={

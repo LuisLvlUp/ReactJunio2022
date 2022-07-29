@@ -22,6 +22,7 @@ import { Link } from 'react-router-dom';
 import { ThemeContext } from '../../shared/theme';
 import NightlightIcon from '@mui/icons-material/Nightlight';
 import LightModeIcon from '@mui/icons-material/LightMode';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 export const Navigation = ({ children }) => {
     const theme = useTheme();
@@ -35,12 +36,13 @@ export const Navigation = ({ children }) => {
         setOpen(false);
     };
 
-    const themeDark = useContext(ThemeContext);
+    const [themeDark, setThemeDark] = useContext(ThemeContext);
 
     return (
         <Box sx={{ display: 'flex' }}>
             <CssBaseline />
-            <AppBar position="fixed" open={open} sx={ themeDark && { backgroundColor: themeDark.dark}}>
+            <AppBar position="fixed" open={open} 
+            sx={ themeDark.active ? { backgroundColor: themeDark.dark} : { backgroundColor: themeDark.light}}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -134,7 +136,8 @@ export const Navigation = ({ children }) => {
                             </ListItemButton>
                         </Link>
                     </ListItem>
-                    <ListItem key={3} disablePadding sx={{ display: 'block' }}>
+                    <ListItem key={4} disablePadding sx={{ display: 'block' }}>
+                        <Link to="/carrito" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }}>
                             <ListItemButton
                                 sx={{
                                     minHeight: 48,
@@ -149,7 +152,29 @@ export const Navigation = ({ children }) => {
                                         justifyContent: 'center',
                                     }}
                                 >
-                                    { true ? <LightModeIcon /> : <NightlightIcon/> }
+                                    <ShoppingCartIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={'Carrito'} sx={{ opacity: open ? 1 : 0 }} />
+                            </ListItemButton>
+                        </Link>
+                    </ListItem>
+                    <ListItem key={5} disablePadding sx={{ display: 'block' }}>
+                            <ListItemButton
+                                sx={{
+                                    minHeight: 48,
+                                    justifyContent: open ? 'initial' : 'center',
+                                    px: 2.5,
+                                }}
+                                onClick={() => setThemeDark( { ...themeDark, active: !themeDark.active } )}
+                            >
+                                <ListItemIcon
+                                    sx={{
+                                        minWidth: 0,
+                                        mr: open ? 3 : 'auto',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    { themeDark.active ? <LightModeIcon /> : <NightlightIcon/> }
                                 </ListItemIcon>
                                 <ListItemText primary={'Mode'} sx={{ opacity: open ? 1 : 0 }} />
                             </ListItemButton>
@@ -161,6 +186,6 @@ export const Navigation = ({ children }) => {
                 <DrawerHeader />
                 {children}
             </Box>
-        </Box>
+        </Box >
     );
 }
