@@ -6,6 +6,7 @@ import { Home } from '../Home/Home'
 import { Navigation } from '../Navigation/Navigation'
 import { NotFound } from '../NotFound/NotFound'
 import { Productos } from '../Productos/Productos'
+import { Todos } from '../Todos/Todos'
 
 export const Main = () => {
   return (
@@ -21,9 +22,9 @@ export const Main = () => {
             <AboutUs />
           </Navigation>}
         />
-        <Route path="productos" element={
+        <Route path="todos" element={
           <Navigation>
-            <Productos />
+            <Todos />
           </Navigation>}
         />
         <Route path="carrito" element={

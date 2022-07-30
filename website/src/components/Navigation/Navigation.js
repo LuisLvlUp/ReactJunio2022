@@ -93,7 +93,7 @@ export const Navigation = ({ children }) => {
 
                     </ListItem>
                     <ListItem key={2} disablePadding sx={{ display: 'block' }}>
-                        <Link to="/productos" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }}>
+                        <Link to="/todos" style={{ textDecoration: 'none', color: 'rgba(0, 0, 0, 0.87)' }}>
                             <ListItemButton
                                 sx={{
                                     minHeight: 48,
