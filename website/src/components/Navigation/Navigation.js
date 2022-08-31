@@ -110,7 +110,7 @@ export const Navigation = ({ children }) => {
                                 >
                                     <CategoryIcon />
                                 </ListItemIcon>
-                                <ListItemText primary={'Productos'} sx={{ opacity: open ? 1 : 0 }} />
+                                <ListItemText primary={'To Do list'} sx={{ opacity: open ? 1 : 0 }} />
                             </ListItemButton>
                         </Link>
                     </ListItem>

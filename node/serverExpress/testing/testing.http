@@ -1,0 +1,31 @@
+GET http://localhost:3001/cursos HTTP/1.1
+
+###
+
+GET http://localhost:3000/carros/2 HTTP/1.1
+
+###
+
+POST http://localhost:3001/carros HTTP/1.1
+content-type: application/json
+
+{
+    "nombre": "Mazda 5",
+    "marca": "Mazda"
+}
+
+###
+
+PUT http://localhost:3000/carros/1 HTTP/1.1
+content-type: application/json
+
+{
+    "nombre": "Mazda 3",
+    "marca": "Mazda"
+}
+
+###
+
+DELETE http://localhost:3000/carros/3 HTTP/1.1
+
+###
